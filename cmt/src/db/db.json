@@ -1,0 +1,70 @@
+{
+  "recomp": [
+    {
+      "id": 1,
+      "desc": "테스트용"
+    },
+    {
+      "id": 2,
+      "desc": "테스트용22222"
+    }
+  ],
+  "comments": [
+    {
+      "id": 2,
+      "recompId": 1,
+      "text": "내용22",
+      "createAt": "줭"
+    },
+    {
+      "id": 3,
+      "recompId": 2,
+      "text": "내용33",
+      "createAt": "줭"
+    },
+    {
+      "recompId": 1,
+      "text": "드디어 되냐",
+      "createAt": "주현",
+      "id": 4
+    },
+    {
+      "recompId": 1,
+      "text": "이거 추천합니다.",
+      "createAt": "김게토",
+      "id": 6
+    },
+    {
+      "recompId": 1,
+      "text": "hello world",
+      "createAt": "this",
+      "id": 7
+    }
+  ],
+  "subcomments": [
+    {
+      "commentId": 4,
+      "text": "안되는건데",
+      "createAt": "왜",
+      "noEdit": true,
+      "id": 2
+    },
+    {
+      "commentId": 6,
+      "text": "와 이거 된다",
+      "createAt": "이고죠",
+      "noEdit": true,
+      "id": 4
+    },
+    {
+      "commentId": 6,
+      "text": "이게 웨대?",
+      "createAt": "김게토",
+      "noEdit": true,
+      "id": 5
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
