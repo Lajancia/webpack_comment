@@ -5,7 +5,7 @@
     <div class="btn">
       <el-button type="primary" @click="startHacking"> Get Started </el-button>
     </div>
-    <comment-element class="w-4/5 mx-auto mt-4" />
+    <comment-element class="w-8/12 mx-auto" />
   </div>
 </template>
 
@@ -39,13 +39,14 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+
   margin-top: 60px;
 }
 .logo {
   width: 50%;
 }
 .btn {
+  color: #2c3e50;
   margin-top: 100px;
 }
 </style>

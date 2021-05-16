@@ -18,7 +18,7 @@
     },
     {
       "recompId": 1,
-      "text": "드디어 되냐",
+      "text": "드디어 된다.",
       "createAt": "주현",
       "id": 4
     },
@@ -39,6 +39,18 @@
       "text": "aaaaaa",
       "createAt": "null",
       "id": 9
+    },
+    {
+      "recompId": 1,
+      "text": "보고하게",
+      "createAt": "zavala",
+      "id": 10
+    },
+    {
+      "recompId": 1,
+      "text": "비밀 댓글입니다.",
+      "createAt": "ikora",
+      "id": 11
     }
   ],
   "subcomments": [
@@ -61,13 +73,22 @@
       "id": 6
     },
     {
-      "commentId": 7,
-      "text": "여긴 어디",
-      "createAt": "헬테이커",
+      "commentId": 4,
+      "text": "확인",
+      "createAt": "saladin",
       "noEdit": true,
-      "editSW": "헬테이커",
-      "editSubText": "여긴 어디",
+      "editSW": "saladin",
+      "editSubText": "확인",
       "id": 7
+    },
+    {
+      "commentId": 11,
+      "text": "가마우지급 기밀입니다.",
+      "createAt": "warlock",
+      "noEdit": true,
+      "editSW": "",
+      "editSubText": "",
+      "id": 8
     }
   ],
   "profile": {

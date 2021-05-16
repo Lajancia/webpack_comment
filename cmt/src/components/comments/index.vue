@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="flex">
+    <div class="flex mt-4">
       <el-input
         placeholder="사용자 입력"
         v-model="cmtWriter"
@@ -12,13 +12,22 @@
         class="w-64 ml-2"
         @keyup.enter="addComment"
       ></el-input>
-      <el-button plain class="ml-4 hover:bg-purple-700" @click="addComment">
+      <el-button
+        type="info"
+        plain
+        class="ml-4 hover:bg-purple-700"
+        @click="addComment"
+      >
         입력</el-button
       >
     </div>
     <br />
-    <div class="text-left" v-for="c in comments" :key="`comments-${c.id}`">
-      <div v-if="c.editF" class="border-t-2 ">
+    <div
+      class="text-left border-t-2 "
+      v-for="c in comments"
+      :key="`comments-${c.id}`"
+    >
+      <div v-if="c.editF" class="">
         <div class="flex my-4">
           <el-avatar
             shape="circle"
@@ -27,27 +36,29 @@
             class="mx-4"
           ></el-avatar>
           <div>
-            <b>{{ c.createAt }}</b>
-            <br />
+            <div class="flex">
+              <b>{{ c.createAt }}</b>
+              <div class="ml-5">
+                <i
+                  class="el-icon-s-comment cursor-pointer hover:text-green-600 mr-1"
+                  @click="openSubcmt(c)"
+                ></i>
+                <i
+                  class="el-icon-edit cursor-pointer hover:text-yellow-500 mr-1"
+                  @click="openEdit(c)"
+                ></i>
+                <i
+                  class="el-icon-delete cursor-pointer hover:text-red-600"
+                  @click="delComment(c)"
+                ></i>
+              </div>
+            </div>
+
             {{ c.text }}
-          </div>
-          <div class="ml-10">
-            <i
-              class="el-icon-s-comment cursor-pointer hover:text-green-600"
-              @click="openSubcmt(c)"
-            ></i>
-            <i
-              class="el-icon-edit cursor-pointer hover:text-green-600"
-              @click="openEdit(c)"
-            ></i>
-            <i
-              class="el-icon-delete cursor-pointer hover:text-green-600"
-              @click="delComment(c)"
-            ></i>
           </div>
         </div>
       </div>
-      <div v-else class="mb-4 ml-14">
+      <div v-else class="my-4 ml-4">
         <el-input
           placeholder="사용자 입력"
           v-model="c.editWriter"
@@ -60,23 +71,14 @@
           class="w-64 ml-2"
           @keyup.enter="editComment(c)"
         ></el-input>
-        <el-button plain class="ml-4" @click="editComment(c)">입력</el-button>
-        <el-button plain class="ml-4" @click="openEdit(c)">취소</el-button>
+        <el-button type="info" plain class="ml-4" @click="editComment(c)"
+          >입력</el-button
+        >
+        <el-button type="danger" class="ml-4" @click="openEdit(c)"
+          >취소</el-button
+        >
       </div>
-      <div v-if="c.subCmtF" class="mb-4 ml-14">
-        <el-input
-          placeholder="사용자 입력"
-          v-model="c.subCmtW"
-          class="w-24"
-        ></el-input>
-        <el-input
-          placeholder="내용을 입력해주세요"
-          v-model="c.subCmtT"
-          class="w-64 ml-2"
-          @keyup.enter="addSubcomment(c)"
-        ></el-input>
-        <el-button plain class="ml-4" @click="addSubcomment(c)">입력</el-button>
-      </div>
+
       <div class="mb-4">
         <div
           v-for="s in c.subcomments"
@@ -96,23 +98,25 @@
                 ></el-avatar>
               </div>
               <div>
-                <b>
-                  {{ s.createAt }}
-                </b>
-                <br />
+                <div class="flex">
+                  <b>
+                    {{ s.createAt }}
+                  </b>
+                  <div class="ml-5">
+                    <i
+                      class="el-icon-edit cursor-pointer hover:text-yellow-500 mr-1"
+                      @click="openEditSub(s)"
+                    ></i>
+                    <i
+                      class="el-icon-delete cursor-pointer hover:text-red-600 mr-1"
+                      @click="delSubC(s)"
+                    ></i>
+                  </div>
+                </div>
+
                 <div>
                   {{ s.text }}
                 </div>
-              </div>
-              <div class="ml-5">
-                <i
-                  class="el-icon-edit cursor-pointer hover:text-green-600"
-                  @click="openEditSub(s)"
-                ></i>
-                <i
-                  class="el-icon-delete cursor-pointer hover:text-green-600"
-                  @click="delSubC(s)"
-                ></i>
               </div>
             </div>
           </div>
@@ -129,13 +133,29 @@
               class="w-64 ml-2"
               @keyup.enter="editSubComment(s)"
             ></el-input>
-            <el-button plain class="ml-4" @click="editSubComment(s)"
+            <el-button type="info" plain class="ml-4" @click="editSubComment(s)"
               >입력</el-button
             >
-            <el-button plain class="ml-4" @click="openEditSub(s)"
+            <el-button type="danger" class="ml-4" @click="openEditSub(s)"
               >취소</el-button
             >
           </div>
+        </div>
+        <div v-if="c.subCmtF" class="mb-4 ml-14">
+          <el-input
+            placeholder="사용자 입력"
+            v-model="c.subCmtW"
+            class="w-24"
+          ></el-input>
+          <el-input
+            placeholder="내용을 입력해주세요"
+            v-model="c.subCmtT"
+            class="w-64 ml-2"
+            @keyup.enter="addSubcomment(c)"
+          ></el-input>
+          <el-button type="info" plain class="ml-4" @click="addSubcomment(c)"
+            >입력</el-button
+          >
         </div>
       </div>
     </div>
@@ -195,6 +215,7 @@ export default {
       });
       this.getComments();
       this.cmtText = "";
+      this.cmtWriter = "";
     },
     delComment(c) {
       this.$confirm("삭제하시겠습니까??", "Warning", {
