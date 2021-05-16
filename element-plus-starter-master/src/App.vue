@@ -1,11 +1,11 @@
 <template>
   <div>
-    <img class="logo" alt="Vue logo" src="./assets/logo.png" />
+    <!-- <img class="logo" alt="Vue logo" src="./assets/logo.png" /> -->
     <HelloWorld :msg="msg" />
     <div class="btn">
       <el-button type="primary" @click="startHacking"> Get Started </el-button>
     </div>
-    <comment-element />
+    <comment-element class="w-4/5 mx-auto mt-4" />
   </div>
 </template>
 

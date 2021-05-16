@@ -1,11 +1,10 @@
 <template>
   <div>
-    <div>this is comment</div>
     <div class="flex">
       <el-input
-        placeholder="사용자를 입력해주세요"
+        placeholder="사용자 입력"
         v-model="cmtWriter"
-        class="w-64"
+        class="w-24 ml-4"
       ></el-input>
       <el-input
         placeholder="내용을 입력해주세요"
@@ -13,32 +12,46 @@
         class="w-64 ml-2"
         @keyup.enter="addComment"
       ></el-input>
-      <el-button type="primary" round class="ml-4" @click="addComment"
-        >입력</el-button
+      <el-button plain class="ml-4 hover:bg-purple-700" @click="addComment">
+        입력</el-button
       >
     </div>
     <br />
     <div class="text-left" v-for="c in comments" :key="`comments-${c.id}`">
-      <div v-if="c.editF">
-        <b>{{ c.createAt }}</b> : {{ c.text }}
-        <i
-          class="el-icon-s-comment cursor-pointer hover:text-green-600"
-          @click="openSubcmt(c)"
-        ></i>
-        <i
-          class="el-icon-edit cursor-pointer hover:text-green-600"
-          @click="openEdit(c)"
-        ></i>
-        <i
-          class="el-icon-delete cursor-pointer hover:text-green-600"
-          @click="delComment(c)"
-        ></i>
+      <div v-if="c.editF" class="border-t-2 ">
+        <div class="flex my-4">
+          <el-avatar
+            shape="circle"
+            :size="30"
+            :src="circleUrl"
+            class="mx-4"
+          ></el-avatar>
+          <div>
+            <b>{{ c.createAt }}</b>
+            <br />
+            {{ c.text }}
+          </div>
+          <div class="ml-10">
+            <i
+              class="el-icon-s-comment cursor-pointer hover:text-green-600"
+              @click="openSubcmt(c)"
+            ></i>
+            <i
+              class="el-icon-edit cursor-pointer hover:text-green-600"
+              @click="openEdit(c)"
+            ></i>
+            <i
+              class="el-icon-delete cursor-pointer hover:text-green-600"
+              @click="delComment(c)"
+            ></i>
+          </div>
+        </div>
       </div>
-      <div v-else>
+      <div v-else class="mb-4 ml-14">
         <el-input
-          placeholder="사용자를 입력해주세요"
-          v-model="editWriter"
-          class="w-64"
+          placeholder="사용자 입력"
+          v-model="c.editWriter"
+          class="w-24"
           >{{ c.createAt }}</el-input
         >
         <el-input
@@ -47,18 +60,14 @@
           class="w-64 ml-2"
           @keyup.enter="editComment(c)"
         ></el-input>
-        <el-button type="primary" round class="ml-4" @click="editComment(c)"
-          >입력</el-button
-        >
-        <el-button type="primary" round class="ml-4" @click="openEdit(c)"
-          >취소</el-button
-        >
+        <el-button plain class="ml-4" @click="editComment(c)">입력</el-button>
+        <el-button plain class="ml-4" @click="openEdit(c)">취소</el-button>
       </div>
-      <div v-if="c.subCmtF" class="flex">
+      <div v-if="c.subCmtF" class="mb-4 ml-14">
         <el-input
-          placeholder="사용자를 입력해주세요"
+          placeholder="사용자 입력"
           v-model="c.subCmtW"
-          class="w-64"
+          class="w-24"
         ></el-input>
         <el-input
           placeholder="내용을 입력해주세요"
@@ -66,44 +75,67 @@
           class="w-64 ml-2"
           @keyup.enter="addSubcomment(c)"
         ></el-input>
-        <el-button type="primary" round class="ml-4" @click="addSubcomment(c)"
-          >입력</el-button
-        >
+        <el-button plain class="ml-4" @click="addSubcomment(c)">입력</el-button>
       </div>
-      <div v-for="s in c.subcomments" :key="`subcomment-${s.id}`" class="pl-4">
-        <div v-if="s.noEdit">
-          <b>┗ {{ s.createAt }}</b> : {{ s.text }}
-          <i
-            class="el-icon-edit cursor-pointer hover:text-green-600"
-            @click="openEditSub(s)"
-          ></i>
-          <i
-            class="el-icon-delete cursor-pointer hover:text-green-600"
-            @click="delSubC(s)"
-          ></i>
-        </div>
-        <div v-else>
-          <el-input
-            placeholder="사용자를 입력해주세요"
-            v-model="editSW"
-            class="w-64"
-          ></el-input>
-          <el-input
-            placeholder="내용을 입력해주세요"
-            v-model="editSubText"
-            class="w-64 ml-2"
-            @keyup.enter="editSubComment(s)"
-          ></el-input>
-          <el-button
-            type="primary"
-            round
-            class="ml-4"
-            @click="editSubComment(s)"
-            >입력</el-button
-          >
-          <el-button type="primary" round class="ml-4" @click="openEditSub(s)"
-            >취소</el-button
-          >
+      <div class="mb-4">
+        <div
+          v-for="s in c.subcomments"
+          :key="`subcomment-${s.id}`"
+          class="pl-14"
+        >
+          <div v-if="s.noEdit">
+            <div class="flex bg-gray-300 mb-4 w-11/12 p-2">
+              <div>
+                ┗
+
+                <el-avatar
+                  shape="square"
+                  :size="20"
+                  :src="squareUrl"
+                  class="mx-2"
+                ></el-avatar>
+              </div>
+              <div>
+                <b>
+                  {{ s.createAt }}
+                </b>
+                <br />
+                <div>
+                  {{ s.text }}
+                </div>
+              </div>
+              <div class="ml-5">
+                <i
+                  class="el-icon-edit cursor-pointer hover:text-green-600"
+                  @click="openEditSub(s)"
+                ></i>
+                <i
+                  class="el-icon-delete cursor-pointer hover:text-green-600"
+                  @click="delSubC(s)"
+                ></i>
+              </div>
+            </div>
+          </div>
+
+          <div v-else class="mb-4">
+            <el-input
+              placeholder="사용자 입력"
+              v-model="s.editSW"
+              class="w-24"
+            ></el-input>
+            <el-input
+              placeholder="내용을 입력해주세요"
+              v-model="s.editSubText"
+              class="w-64 ml-2"
+              @keyup.enter="editSubComment(s)"
+            ></el-input>
+            <el-button plain class="ml-4" @click="editSubComment(s)"
+              >입력</el-button
+            >
+            <el-button plain class="ml-4" @click="openEditSub(s)"
+              >취소</el-button
+            >
+          </div>
         </div>
       </div>
     </div>
@@ -121,12 +153,13 @@ export default {
   },
   data() {
     return {
+      circleUrl:
+        "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png",
+      squareUrl:
+        "https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png",
       comments: [],
       cmtText: "",
       cmtWriter: "",
-      editWriter: "",
-      editSW: "",
-      editSubText: "",
     };
   },
   mounted() {
@@ -200,6 +233,8 @@ export default {
         text: c.subCmtT,
         createAt: c.subCmtW,
         noEdit: true,
+        editSW: "",
+        editSubText: "",
       });
       this.getComments();
       c.subCmtT = "";
@@ -227,7 +262,8 @@ export default {
     },
     async openEdit(c) {
       c.editF = !c.editF;
-      this.editWriter = c.createAt;
+      c.editWriter = c.createAt;
+      c.editT = c.text;
     },
     editComment(c) {
       if (!c.editT) {
@@ -245,7 +281,7 @@ export default {
         .then(async () => {
           await axios.patch(`http://localhost:3000/comments/${c.id}`, {
             text: c.editT,
-            createAt: this.editWriter,
+            createAt: c.editWriter,
           });
           this.getComments();
           this.$message({
@@ -254,7 +290,7 @@ export default {
           });
           c.editF = !c.editF;
           c.editT = "";
-          this.editWriter = "";
+          c.editWriter = "";
         })
         .catch(() => {
           this.$message({
@@ -266,12 +302,13 @@ export default {
     async openEditSub(s) {
       await axios.patch(`http://localhost:3000/subcomments/${s.id}`, {
         noEdit: !s.noEdit,
+        editSW: s.createAt,
+        editSubText: s.text,
       });
-      this.editSW = s.createAt;
       this.getComments();
     },
     editSubComment(s) {
-      if (!this.editSW || !this.editSubText) {
+      if (!s.editSW || !s.editSubText) {
         this.$message({
           message: "내용이 입력되지 않았습니다.",
           type: "warning",
@@ -285,17 +322,17 @@ export default {
       })
         .then(async () => {
           await axios.patch(`http://localhost:3000/subcomments/${s.id}`, {
-            text: this.editSubText,
-            createAt: this.editSW,
+            text: s.editSubText,
+            createAt: s.editSW,
             noEdit: true,
+            editSW: "",
+            editSubText: "",
           });
           this.getComments();
           this.$message({
             type: "info",
             message: "수정되었습니다.",
           });
-          this.editSW = "";
-          this.editSubText = "";
         })
         .catch(() => {
           this.$message({

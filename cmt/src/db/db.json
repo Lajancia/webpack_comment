@@ -11,12 +11,6 @@
   ],
   "comments": [
     {
-      "id": 2,
-      "recompId": 1,
-      "text": "내용22",
-      "createAt": "줭"
-    },
-    {
       "id": 3,
       "recompId": 2,
       "text": "내용33",
@@ -30,15 +24,21 @@
     },
     {
       "recompId": 1,
-      "text": "이거 추천합니다.",
-      "createAt": "김게토",
-      "id": 6
-    },
-    {
-      "recompId": 1,
       "text": "hello world",
       "createAt": "this",
       "id": 7
+    },
+    {
+      "recompId": 1,
+      "text": "라인 테스트",
+      "createAt": "mr ",
+      "id": 8
+    },
+    {
+      "recompId": 1,
+      "text": "aaaaaa",
+      "createAt": "null",
+      "id": 9
     }
   ],
   "subcomments": [
@@ -47,21 +47,27 @@
       "text": "안되는건데",
       "createAt": "왜",
       "noEdit": true,
-      "id": 2
+      "id": 2,
+      "editSW": "왜",
+      "editSubText": "안되는건데"
     },
     {
-      "commentId": 6,
-      "text": "와 이거 된다",
-      "createAt": "이고죠",
+      "commentId": 7,
+      "text": "으어어어어",
+      "createAt": "라이브라",
       "noEdit": true,
-      "id": 4
+      "editSW": "라이브라",
+      "editSubText": "으어어어어",
+      "id": 6
     },
     {
-      "commentId": 6,
-      "text": "이게 웨대?",
-      "createAt": "김게토",
+      "commentId": 7,
+      "text": "여긴 어디",
+      "createAt": "헬테이커",
       "noEdit": true,
-      "id": 5
+      "editSW": "헬테이커",
+      "editSubText": "여긴 어디",
+      "id": 7
     }
   ],
   "profile": {
