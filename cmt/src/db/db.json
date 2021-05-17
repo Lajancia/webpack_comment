@@ -2,11 +2,13 @@
   "recomp": [
     {
       "id": 1,
-      "desc": "테스트용"
+      "desc": "Single-SPA",
+      "count": 8
     },
     {
       "id": 2,
-      "desc": "테스트용22222"
+      "desc": "Webpack",
+      "count": 2
     }
   ],
   "comments": [
@@ -14,43 +16,41 @@
       "id": 3,
       "recompId": 2,
       "text": "내용33",
-      "createAt": "줭"
+      "createAt": "줭",
+      "like": 4,
+      "check": false
     },
     {
+      "id": 1,
+      "recompId": 2,
+      "text": "내용1111",
+      "createAt": "킴",
+      "like": 2,
+      "check": false
+    },
+    {
+      "like": 10,
       "recompId": 1,
       "text": "드디어 된다.",
       "createAt": "주현",
-      "id": 4
+      "id": 4,
+      "check": true
     },
     {
-      "recompId": 1,
-      "text": "hello world",
-      "createAt": "this",
-      "id": 7
-    },
-    {
+      "like": 9,
       "recompId": 1,
       "text": "라인 테스트",
       "createAt": "mr ",
-      "id": 8
+      "id": 8,
+      "check": false
     },
     {
-      "recompId": 1,
-      "text": "aaaaaa",
-      "createAt": "null",
-      "id": 9
-    },
-    {
-      "recompId": 1,
-      "text": "보고하게",
-      "createAt": "zavala",
-      "id": 10
-    },
-    {
+      "like": 6,
       "recompId": 1,
       "text": "비밀 댓글입니다.",
       "createAt": "ikora",
-      "id": 11
+      "id": 11,
+      "check": true
     }
   ],
   "subcomments": [
@@ -64,24 +64,6 @@
       "editSubText": "안되는건데"
     },
     {
-      "commentId": 7,
-      "text": "으어어어어",
-      "createAt": "라이브라",
-      "noEdit": true,
-      "editSW": "라이브라",
-      "editSubText": "으어어어어",
-      "id": 6
-    },
-    {
-      "commentId": 4,
-      "text": "확인",
-      "createAt": "saladin",
-      "noEdit": true,
-      "editSW": "saladin",
-      "editSubText": "확인",
-      "id": 7
-    },
-    {
       "commentId": 11,
       "text": "가마우지급 기밀입니다.",
       "createAt": "warlock",
@@ -89,6 +71,15 @@
       "editSW": "",
       "editSubText": "",
       "id": 8
+    },
+    {
+      "commentId": 4,
+      "text": "spade ace",
+      "createAt": "cayde",
+      "noEdit": true,
+      "editSW": "cayde",
+      "editSubText": "spade ace",
+      "id": 9
     }
   ],
   "profile": {

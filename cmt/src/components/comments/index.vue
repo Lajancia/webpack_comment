@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="flex mt-4">
+    <div class="flex my-4 relative">
       <el-input
         placeholder="사용자 입력"
         v-model="cmtWriter"
@@ -20,24 +20,39 @@
       >
         입력</el-button
       >
+
+      <div class="flex absolute inset-y-0 right-0 mr-12 ">
+        <div class="el-icon-setting text-2xl text-gray-500"></div>
+        <el-input-number
+          size="small"
+          v-model="recompId"
+          @change="getComments()"
+          :min="1"
+          :max="2"
+          class="ml-2 "
+        ></el-input-number>
+      </div>
     </div>
-    <br />
+
     <div
       class="text-left border-t-2 "
       v-for="c in comments"
       :key="`comments-${c.id}`"
     >
       <div v-if="c.editF" class="">
-        <div class="flex my-4">
-          <el-avatar
-            shape="circle"
-            :size="30"
-            :src="circleUrl"
-            class="mx-4"
-          ></el-avatar>
+        <div class="flex my-4 relative">
           <div>
-            <div class="flex">
-              <b>{{ c.createAt }}</b>
+            <el-avatar
+              shape="circle"
+              :size="30"
+              :src="circleUrl"
+              class="mx-3"
+            ></el-avatar>
+            <br />
+          </div>
+          <div>
+            <div class="flex float-left ">
+              <b class="text-xl">{{ c.createAt }}</b>
               <div class="ml-5">
                 <i
                   class="el-icon-s-comment cursor-pointer hover:text-green-600 mr-1"
@@ -48,13 +63,28 @@
                   @click="openEdit(c)"
                 ></i>
                 <i
-                  class="el-icon-delete cursor-pointer hover:text-red-600"
+                  class="el-icon-delete cursor-pointer mr-80 hover:text-red-600"
                   @click="delComment(c)"
                 ></i>
               </div>
             </div>
 
-            {{ c.text }}
+            <div class="text-lg">{{ c.text }}</div>
+          </div>
+
+          <div class="flex absolute inset-y-2 right-0 mr-12">
+            <div
+              v-if="c.check"
+              class=" el-icon-star-on ml-2 text-2xl md:hover:text-yellow-400 focus:text-yellow-400 active:text-yellow-400 "
+              @click="plusStar(c)"
+            ></div>
+            <div
+              v-else
+              class=" el-icon-star-on ml-2 text-2xl text-yellow-400 "
+            ></div>
+            <div class="ml-1 mt-1 text-lg text-yellow-400">
+              {{ c.like }}
+            </div>
           </div>
         </div>
       </div>
@@ -86,7 +116,7 @@
           class="pl-14"
         >
           <div v-if="s.noEdit">
-            <div class="flex bg-gray-300 mb-4 w-11/12 p-2">
+            <div class="flex rounded-lg bg-gray-300 mb-4 w-11/12 p-2">
               <div>
                 ┗
 
@@ -94,12 +124,12 @@
                   shape="square"
                   :size="20"
                   :src="squareUrl"
-                  class="mx-2"
+                  class="mr-4 ml-2"
                 ></el-avatar>
               </div>
               <div>
                 <div class="flex">
-                  <b>
+                  <b class="text-lg">
                     {{ s.createAt }}
                   </b>
                   <div class="ml-5">
@@ -166,6 +196,10 @@
 import axios from "axios";
 export default {
   props: {
+    change: {
+      type: Boolean,
+      default: true, //recompId 안주면 1
+    },
     recompId: {
       type: Number,
       default: 1, //recompId 안주면 1
@@ -173,11 +207,13 @@ export default {
   },
   data() {
     return {
+      checked: true,
       circleUrl:
         "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png",
       squareUrl:
         "https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png",
       comments: [],
+      recomp: [],
       cmtText: "",
       cmtWriter: "",
     };
@@ -186,6 +222,16 @@ export default {
     this.getComments();
   },
   methods: {
+    clickstar() {
+      change = !change;
+    },
+    changeId(change) {
+      change = !change;
+      this.getComments();
+    },
+    handleChange(value) {
+      console.log(value);
+    },
     async getComments() {
       const res = await axios.get(
         `http://localhost:3000/comments?recompId=${this.recompId}&_embed=subcomments`
@@ -199,6 +245,11 @@ export default {
         return c;
       });
       this.comments = reRes;
+
+      const re = await axios.get(
+        `http://localhost:3000/recomp?id=${this.recompId}`
+      );
+      this.recomp = re;
     },
     async addComment() {
       if (!this.cmtText || !this.cmtWriter) {
@@ -212,7 +263,10 @@ export default {
         recompId: this.recompId,
         text: this.cmtText,
         createAt: this.cmtWriter,
+        like: 0,
+        check: true,
       });
+
       this.getComments();
       this.cmtText = "";
       this.cmtWriter = "";
@@ -274,6 +328,7 @@ export default {
           });
           this.getComments();
         })
+
         .catch(() => {
           this.$message({
             type: "info",
@@ -361,6 +416,13 @@ export default {
             message: "수정을 취소합니다.",
           });
         });
+    },
+    async plusStar(c) {
+      await axios.patch(`http://localhost:3000/comments/${c.id}`, {
+        like: c.like + 1,
+        check: !c.check,
+      });
+      this.getComments();
     },
   },
 };
