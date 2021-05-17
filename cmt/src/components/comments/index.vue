@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div v-for="name in recomp.data" :key="name.id" class="ml-4 mt-4 font-bold">
+      {{ name.desc }}
+    </div>
     <div class="flex my-4 relative">
       <el-input
         placeholder="사용자 입력"
@@ -22,7 +25,6 @@
       >
 
       <div class="flex absolute inset-y-0 right-0 mr-12 ">
-        <div class="el-icon-setting text-2xl text-gray-500"></div>
         <el-input-number
           size="small"
           v-model="recompId"
@@ -31,6 +33,7 @@
           :max="2"
           class="ml-2 "
         ></el-input-number>
+        <div class="el-icon-setting ml-2 text-2xl text-gray-500"></div>
       </div>
     </div>
 
@@ -75,14 +78,15 @@
           <div class="flex absolute inset-y-2 right-0 mr-12">
             <div
               v-if="c.check"
-              class=" el-icon-star-on ml-2 text-2xl md:hover:text-yellow-400 focus:text-yellow-400 active:text-yellow-400 "
+              class=" el-icon-star-on ml-2 cursor-pointer text-2xl md:hover:text-yellow-400 focus:text-yellow-400 active:text-yellow-400 "
               @click="plusStar(c)"
             ></div>
             <div
               v-else
-              class=" el-icon-star-on ml-2 text-2xl text-yellow-400 "
+              class=" el-icon-star-on cursor-pointer ml-2 text-2xl text-yellow-400 "
+              @click="plusStarfalse(c)"
             ></div>
-            <div class="ml-1 mt-1 text-lg text-yellow-400">
+            <div class="ml-1 mt-1 text-lg text-yellow-400 ">
               {{ c.like }}
             </div>
           </div>
@@ -420,6 +424,13 @@ export default {
     async plusStar(c) {
       await axios.patch(`http://localhost:3000/comments/${c.id}`, {
         like: c.like + 1,
+        check: !c.check,
+      });
+      this.getComments();
+    },
+    async plusStarfalse(c) {
+      await axios.patch(`http://localhost:3000/comments/${c.id}`, {
+        like: c.like - 1,
         check: !c.check,
       });
       this.getComments();

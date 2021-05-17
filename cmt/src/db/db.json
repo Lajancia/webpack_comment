@@ -17,32 +17,32 @@
       "recompId": 2,
       "text": "내용33",
       "createAt": "줭",
-      "like": 4,
-      "check": false
+      "like": 3,
+      "check": true
     },
     {
       "id": 1,
       "recompId": 2,
       "text": "내용1111",
       "createAt": "킴",
-      "like": 2,
-      "check": false
+      "like": 1,
+      "check": true
     },
     {
       "like": 10,
       "recompId": 1,
-      "text": "드디어 된다.",
+      "text": "Working",
       "createAt": "주현",
       "id": 4,
       "check": true
     },
     {
-      "like": 9,
+      "like": 8,
       "recompId": 1,
       "text": "라인 테스트",
-      "createAt": "mr ",
+      "createAt": "MR",
       "id": 8,
-      "check": false
+      "check": true
     },
     {
       "like": 6,
@@ -51,17 +51,41 @@
       "createAt": "ikora",
       "id": 11,
       "check": true
+    },
+    {
+      "recompId": 2,
+      "text": "master",
+      "createAt": "Halo",
+      "like": 0,
+      "check": true,
+      "id": 13
+    },
+    {
+      "recompId": 1,
+      "text": "디자인 담당",
+      "createAt": "황수민",
+      "like": 0,
+      "check": true,
+      "id": 14
+    },
+    {
+      "recompId": 1,
+      "text": "하세요",
+      "createAt": "안녕",
+      "like": 0,
+      "check": true,
+      "id": 15
     }
   ],
   "subcomments": [
     {
       "commentId": 4,
-      "text": "안되는건데",
-      "createAt": "왜",
+      "text": "world",
+      "createAt": "hello",
       "noEdit": true,
       "id": 2,
-      "editSW": "왜",
-      "editSubText": "안되는건데"
+      "editSW": "",
+      "editSubText": ""
     },
     {
       "commentId": 11,
@@ -73,13 +97,40 @@
       "id": 8
     },
     {
-      "commentId": 4,
-      "text": "spade ace",
-      "createAt": "cayde",
+      "commentId": 3,
+      "text": "last whish",
+      "createAt": "Kubera",
       "noEdit": true,
-      "editSW": "cayde",
-      "editSubText": "spade ace",
-      "id": 9
+      "editSW": "",
+      "editSubText": "",
+      "id": 10
+    },
+    {
+      "commentId": 1,
+      "text": "라랄라라ㅏ라라라ㅏ",
+      "createAt": "Music",
+      "noEdit": true,
+      "editSW": "",
+      "editSubText": "",
+      "id": 11
+    },
+    {
+      "commentId": 8,
+      "text": "message",
+      "createAt": "send",
+      "noEdit": true,
+      "editSW": "",
+      "editSubText": "",
+      "id": 12
+    },
+    {
+      "commentId": 8,
+      "text": "비밀 댓글입니다",
+      "createAt": "email",
+      "noEdit": true,
+      "editSW": "",
+      "editSubText": "",
+      "id": 13
     }
   ],
   "profile": {
