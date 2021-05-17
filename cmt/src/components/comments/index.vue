@@ -39,7 +39,7 @@
 
     <div
       class="text-left border-t-2 "
-      v-for="c in comments"
+      v-for="c in comments.slice().reverse()"
       :key="`comments-${c.id}`"
     >
       <div v-if="c.editF" class="">
@@ -66,13 +66,16 @@
                   @click="openEdit(c)"
                 ></i>
                 <i
-                  class="el-icon-delete cursor-pointer mr-80 hover:text-red-600"
+                  class="el-icon-delete cursor-pointer mr-1 hover:text-red-600"
                   @click="delComment(c)"
                 ></i>
+                <i class="text-xs mr-80">
+                  {{ c.time }}
+                </i>
               </div>
             </div>
 
-            <div class="text-lg">{{ c.text }}</div>
+            <div class="text-lg ">{{ c.text }}</div>
           </div>
 
           <div class="flex absolute inset-y-2 right-0 mr-12">
@@ -145,6 +148,9 @@
                       class="el-icon-delete cursor-pointer hover:text-red-600 mr-1"
                       @click="delSubC(s)"
                     ></i>
+                  </div>
+                  <div class="text-xs ml-1">
+                    {{ s.time }}
                   </div>
                 </div>
 
@@ -220,12 +226,22 @@ export default {
       recomp: [],
       cmtText: "",
       cmtWriter: "",
+      current_time: "",
     };
   },
   mounted() {
     this.getComments();
+
+    this.date = this.getDate();
+    this.time = this.getTime();
   },
   methods: {
+    getDate: function() {
+      return new Date().toLocaleDateString();
+    },
+    getTime: function() {
+      return new Date().toLocaleTimeString();
+    },
     clickstar() {
       change = !change;
     },
@@ -269,6 +285,7 @@ export default {
         createAt: this.cmtWriter,
         like: 0,
         check: true,
+        time: this.date + " " + this.time,
       });
 
       this.getComments();
@@ -314,6 +331,7 @@ export default {
         noEdit: true,
         editSW: "",
         editSubText: "",
+        time: this.date + " " + this.time,
       });
       this.getComments();
       c.subCmtT = "";
@@ -344,6 +362,7 @@ export default {
       c.editF = !c.editF;
       c.editWriter = c.createAt;
       c.editT = c.text;
+      c.current_time = this.date + this.time + "(수정)";
     },
     editComment(c) {
       if (!c.editT) {
@@ -362,6 +381,7 @@ export default {
           await axios.patch(`http://localhost:3000/comments/${c.id}`, {
             text: c.editT,
             createAt: c.editWriter,
+            time: c.current_time,
           });
           this.getComments();
           this.$message({
@@ -407,6 +427,7 @@ export default {
             noEdit: true,
             editSW: "",
             editSubText: "",
+            time: this.date + this.time + "(수정)",
           });
           this.getComments();
           this.$message({

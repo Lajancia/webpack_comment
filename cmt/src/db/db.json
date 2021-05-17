@@ -18,7 +18,8 @@
       "text": "내용33",
       "createAt": "줭",
       "like": 3,
-      "check": true
+      "check": true,
+      "time": "111"
     },
     {
       "id": 1,
@@ -26,7 +27,8 @@
       "text": "내용1111",
       "createAt": "킴",
       "like": 1,
-      "check": true
+      "check": true,
+      "time": "222"
     },
     {
       "like": 10,
@@ -34,7 +36,8 @@
       "text": "Working",
       "createAt": "주현",
       "id": 4,
-      "check": true
+      "check": true,
+      "time": "333"
     },
     {
       "like": 8,
@@ -42,15 +45,17 @@
       "text": "라인 테스트",
       "createAt": "MR",
       "id": 8,
-      "check": true
+      "check": true,
+      "time": "444"
     },
     {
-      "like": 6,
+      "like": 7,
       "recompId": 1,
       "text": "비밀 댓글입니다.",
       "createAt": "ikora",
       "id": 11,
-      "check": true
+      "check": false,
+      "time": "2021. 5. 17.오후 8:37:05(수정)"
     },
     {
       "recompId": 2,
@@ -58,7 +63,8 @@
       "createAt": "Halo",
       "like": 0,
       "check": true,
-      "id": 13
+      "id": 13,
+      "time": ""
     },
     {
       "recompId": 1,
@@ -66,15 +72,53 @@
       "createAt": "황수민",
       "like": 0,
       "check": true,
-      "id": 14
+      "id": 14,
+      "time": ""
     },
     {
       "recompId": 1,
       "text": "하세요",
       "createAt": "안녕",
+      "like": 1,
+      "check": false,
+      "id": 15,
+      "time": ""
+    },
+    {
+      "recompId": 1,
+      "text": "worlddd",
+      "createAt": "hello",
+      "like": 1,
+      "check": false,
+      "id": 16,
+      "time": "2021. 5. 17.오후 8:40:11(수정)"
+    },
+    {
+      "recompId": 1,
+      "text": "sdfsefdd",
+      "createAt": "sd",
       "like": 0,
       "check": true,
-      "id": 15
+      "time": "2021. 5. 17.",
+      "id": 17
+    },
+    {
+      "recompId": 1,
+      "text": "awdasds",
+      "createAt": "as",
+      "like": 0,
+      "check": true,
+      "time": "2021. 5. 17.오후 8:13:29",
+      "id": 18
+    },
+    {
+      "recompId": 1,
+      "text": "asdawdaaasdsfs",
+      "createAt": "asda",
+      "like": 0,
+      "check": true,
+      "time": "2021. 5. 17.오후 8:33:32(수정)",
+      "id": 19
     }
   ],
   "subcomments": [
@@ -85,7 +129,8 @@
       "noEdit": true,
       "id": 2,
       "editSW": "",
-      "editSubText": ""
+      "editSubText": "",
+      "time": "1111222"
     },
     {
       "commentId": 11,
@@ -94,7 +139,8 @@
       "noEdit": true,
       "editSW": "",
       "editSubText": "",
-      "id": 8
+      "id": 8,
+      "time": "22222"
     },
     {
       "commentId": 3,
@@ -103,7 +149,8 @@
       "noEdit": true,
       "editSW": "",
       "editSubText": "",
-      "id": 10
+      "id": 10,
+      "time": "3333"
     },
     {
       "commentId": 1,
@@ -112,7 +159,8 @@
       "noEdit": true,
       "editSW": "",
       "editSubText": "",
-      "id": 11
+      "id": 11,
+      "time": "444444"
     },
     {
       "commentId": 8,
@@ -121,7 +169,8 @@
       "noEdit": true,
       "editSW": "",
       "editSubText": "",
-      "id": 12
+      "id": 12,
+      "time": "555555"
     },
     {
       "commentId": 8,
@@ -130,7 +179,38 @@
       "noEdit": true,
       "editSW": "",
       "editSubText": "",
-      "id": 13
+      "id": 13,
+      "time": ""
+    },
+    {
+      "commentId": 16,
+      "text": "asdwadw",
+      "createAt": "asd",
+      "noEdit": true,
+      "editSW": "",
+      "editSubText": "",
+      "id": 14,
+      "time": "2021. 5. 17.오후 8:40:11(수정)"
+    },
+    {
+      "commentId": 11,
+      "text": "aaaaaaaaaa",
+      "createAt": "aaa",
+      "noEdit": true,
+      "editSW": "",
+      "editSubText": "",
+      "time": "2021. 5. 17. 오후 8:30:18",
+      "id": 15
+    },
+    {
+      "commentId": 16,
+      "text": "eeeeeeee",
+      "createAt": "We",
+      "noEdit": true,
+      "editSW": "",
+      "editSubText": "",
+      "time": "2021. 5. 17. 오후 8:33:32",
+      "id": 16
     }
   ],
   "profile": {
