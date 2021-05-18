@@ -18,7 +18,8 @@
     "serve": "^11.3.2",
     "style-loader": "^2.0.0",
     "tailwindcss": "yarn:@tailwindcss/postcss7-compat",
-    "vue": "^3.0.0"
+    "vue": "^3.0.0",
+    "vue-markdown-loader": "^2.4.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

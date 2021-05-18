@@ -27,7 +27,6 @@
       <div class="flex absolute inset-y-0 right-0 mr-12 ">
         <div v-if="settingBox">
           <el-input-number
-            size="small"
             v-model="recompId"
             @change="getComments()"
             :min="1"
@@ -213,7 +212,7 @@ export default {
   props: {
     change: {
       type: Boolean,
-      default: true, //recompId 안주면 1
+      default: true,
     },
     recompId: {
       type: Number,

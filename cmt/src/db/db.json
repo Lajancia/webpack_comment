@@ -31,48 +31,12 @@
       "time": "222"
     },
     {
-      "like": 8,
-      "recompId": 1,
-      "text": "라인 테스트",
-      "createAt": "MR",
-      "id": 8,
-      "check": true,
-      "time": "444"
-    },
-    {
-      "like": 7,
-      "recompId": 1,
-      "text": "비밀 댓글입니다.",
-      "createAt": "ikora",
-      "id": 11,
-      "check": false,
-      "time": "2021. 5. 17.오후 8:37:05(수정)"
-    },
-    {
       "recompId": 2,
       "text": "master",
       "createAt": "Halo",
       "like": 0,
       "check": true,
       "id": 13,
-      "time": ""
-    },
-    {
-      "recompId": 1,
-      "text": "디자인 담당",
-      "createAt": "황수민",
-      "like": 0,
-      "check": true,
-      "id": 14,
-      "time": ""
-    },
-    {
-      "recompId": 1,
-      "text": "하세요",
-      "createAt": "안녕",
-      "like": 1,
-      "check": false,
-      "id": 15,
       "time": ""
     },
     {
@@ -110,19 +74,36 @@
       "check": false,
       "time": "2021. 5. 17.오후 8:33:32(수정)",
       "id": 19
+    },
+    {
+      "recompId": 1,
+      "text": "Store open",
+      "createAt": "Aida-1",
+      "like": 0,
+      "check": true,
+      "time": "2021. 5. 18. 오후 4:11:14",
+      "id": 20
+    },
+    {
+      "recompId": 1,
+      "text": "디자인 코딩 담당 하고 있습니다",
+      "createAt": "황수민",
+      "like": 0,
+      "check": true,
+      "time": "2021. 5. 18.오후 4:16:21(수정)",
+      "id": 21
+    },
+    {
+      "recompId": 1,
+      "text": "it's working",
+      "createAt": "Cayde",
+      "like": 1,
+      "check": false,
+      "time": "2021. 5. 18. 오후 4:16:21",
+      "id": 22
     }
   ],
   "subcomments": [
-    {
-      "commentId": 11,
-      "text": "가마우지급 기밀입니다.",
-      "createAt": "warlock",
-      "noEdit": true,
-      "editSW": "",
-      "editSubText": "",
-      "id": 8,
-      "time": "22222"
-    },
     {
       "commentId": 3,
       "text": "last whish",
@@ -144,26 +125,6 @@
       "time": "444444"
     },
     {
-      "commentId": 8,
-      "text": "message",
-      "createAt": "send",
-      "noEdit": true,
-      "editSW": "",
-      "editSubText": "",
-      "id": 12,
-      "time": "555555"
-    },
-    {
-      "commentId": 8,
-      "text": "비밀 댓글입니다",
-      "createAt": "email",
-      "noEdit": true,
-      "editSW": "",
-      "editSubText": "",
-      "id": 13,
-      "time": ""
-    },
-    {
       "commentId": 16,
       "text": "asdwadw",
       "createAt": "asd",
@@ -174,24 +135,24 @@
       "time": "2021. 5. 17.오후 8:40:11(수정)"
     },
     {
-      "commentId": 11,
-      "text": "aaaaaaaaaa",
-      "createAt": "aaa",
+      "commentId": 21,
+      "text": "Nomad coder",
+      "createAt": "Code",
       "noEdit": true,
-      "editSW": "",
-      "editSubText": "",
-      "time": "2021. 5. 17. 오후 8:30:18",
-      "id": 15
+      "editSW": "Code",
+      "editSubText": "Nomad coder",
+      "time": "2021. 5. 18. 오후 4:11:14",
+      "id": 17
     },
     {
-      "commentId": 16,
-      "text": "eeeeeeee",
-      "createAt": "We",
+      "commentId": 21,
+      "text": "er",
+      "createAt": "Hack",
       "noEdit": true,
       "editSW": "",
       "editSubText": "",
-      "time": "2021. 5. 17. 오후 8:33:32",
-      "id": 16
+      "time": "2021. 5. 18. 오후 4:16:21",
+      "id": 18
     }
   ],
   "profile": {

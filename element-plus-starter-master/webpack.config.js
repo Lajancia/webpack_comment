@@ -31,7 +31,22 @@ module.exports = (env = {}) => ({
     },
   },
   module: {
-    rules: [
+    rules: [  
+      {
+        test: /\.md$/,
+        use: [
+          {
+            loader: 'vue-loader'
+          },
+          {
+            loader: 'vue-markdown-loader/lib/markdown-compiler',
+            options: {
+                  raw: true
+            }
+          }
+        ]
+      },
+      
       {
         test: /\.vue$/,
         use: "vue-loader",
@@ -63,6 +78,9 @@ module.exports = (env = {}) => ({
         ],
       },
     ],
+  },
+  resolve: {
+    extensions: ['.ts', '.js', '.vue', '.json', '.md'],
   },
   plugins: [
     new MiniCssExtractPlugin({
