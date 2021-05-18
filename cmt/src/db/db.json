@@ -31,15 +31,6 @@
       "time": "222"
     },
     {
-      "like": 10,
-      "recompId": 1,
-      "text": "Working",
-      "createAt": "주현",
-      "id": 4,
-      "check": true,
-      "time": "333"
-    },
-    {
       "like": 8,
       "recompId": 1,
       "text": "라인 테스트",
@@ -99,7 +90,7 @@
       "createAt": "sd",
       "like": 0,
       "check": true,
-      "time": "2021. 5. 17.",
+      "time": "2021. 5. 17.오후 9:08:08(수정)",
       "id": 17
     },
     {
@@ -115,23 +106,13 @@
       "recompId": 1,
       "text": "asdawdaaasdsfs",
       "createAt": "asda",
-      "like": 0,
-      "check": true,
+      "like": 1,
+      "check": false,
       "time": "2021. 5. 17.오후 8:33:32(수정)",
       "id": 19
     }
   ],
   "subcomments": [
-    {
-      "commentId": 4,
-      "text": "world",
-      "createAt": "hello",
-      "noEdit": true,
-      "id": 2,
-      "editSW": "",
-      "editSubText": "",
-      "time": "1111222"
-    },
     {
       "commentId": 11,
       "text": "가마우지급 기밀입니다.",

@@ -25,15 +25,20 @@
       >
 
       <div class="flex absolute inset-y-0 right-0 mr-12 ">
-        <el-input-number
-          size="small"
-          v-model="recompId"
-          @change="getComments()"
-          :min="1"
-          :max="2"
-          class="ml-2 "
-        ></el-input-number>
-        <div class="el-icon-setting ml-2 text-2xl text-gray-500"></div>
+        <div v-if="settingBox">
+          <el-input-number
+            size="small"
+            v-model="recompId"
+            @change="getComments()"
+            :min="1"
+            :max="2"
+            class="ml-2 "
+          ></el-input-number>
+        </div>
+        <div
+          class="el-icon-setting cursor-pointer ml-2 text-2xl text-gray-500 hover:text-green-600"
+          @click="openSettingBox"
+        ></div>
       </div>
     </div>
 
@@ -227,6 +232,7 @@ export default {
       cmtText: "",
       cmtWriter: "",
       current_time: "",
+      settingBox: false,
     };
   },
   mounted() {
@@ -455,6 +461,9 @@ export default {
         check: !c.check,
       });
       this.getComments();
+    },
+    openSettingBox() {
+      this.settingBox = !this.settingBox;
     },
   },
 };
