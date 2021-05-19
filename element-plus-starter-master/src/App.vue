@@ -1,7 +1,6 @@
 <template>
   <div>
-    List
-    <Test class="mt-5 mx-10" />
+    <Test class="mt-5 mx-20" />
     <comment-element class="w-10/12 mx-auto" />
   </div>
 </template>

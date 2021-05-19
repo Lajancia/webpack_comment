@@ -398,10 +398,10 @@ export const unmount = lifecycles.unmount;
 
 ### **참고**
 
-> CSR VS SSR https://velog.io/@junghyunhao/SPA-MPA-CSR-SSR-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0
+- [CSR VS SSR](https://velog.io/@junghyunhao/SPA-MPA-CSR-SSR-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0)
 
-> SPA SSR https://velog.io/@namezin/CSR-SSR
+- [SPA SSR](https://velog.io/@namezin/CSR-SSR)
 
-> vue.js 기반 ssr 사용법 https://medium.com/weekly-webtips/server-side-rendering-ssr-for-an-spa-project-a3b4e846abcd
+- [vue.js 기반 ssr 사용법](https://medium.com/weekly-webtips/server-side-rendering-ssr-for-an-spa-project-a3b4e846abcd)
 
-> nuxt.js spa 사용 https://medium.com/aha-official/%EC%95%84%ED%95%98-%ED%94%84%EB%A1%A0%ED%8A%B8-%EA%B0%9C%EB%B0%9C%EA%B8%B0-1-spa%EC%99%80-ssr%EC%9D%98-%EC%9E%A5%EB%8B%A8%EC%A0%90-%EA%B7%B8%EB%A6%AC%EA%B3%A0-nuxt-js-cafdc3ac2053
+- [nuxt.js spa 사용](https://medium.com/aha-official/%EC%95%84%ED%95%98-%ED%94%84%EB%A1%A0%ED%8A%B8-%EA%B0%9C%EB%B0%9C%EA%B8%B0-1-spa%EC%99%80-ssr%EC%9D%98-%EC%9E%A5%EB%8B%A8%EC%A0%90-%EA%B7%B8%EB%A6%AC%EA%B3%A0-nuxt-js-cafdc3ac2053)
